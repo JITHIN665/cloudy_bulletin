@@ -1,17 +1,90 @@
-# cloudy_bulletin
+# 🌤️ Cloudy Bulletin
 
-A new Flutter project.
+**Cloudy Bulletin** is a Flutter app that combines real-time weather updates with dynamic news curation based on current climate and user preferences.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+### 🏠 Home Screen
+- **Current Weather** based on location:
+  - Temperature (°C/°F switch)
+  - Weather condition description
+  - Humidity, wind, 5-day forecast with animated Lottie icons
+- **News Feed**:
+  - Automatically filters news based on current weather (e.g. "tragedy" on cold/fog, "danger" on storm)
+  - Headline image, title, short description, published date
+  - Tap to open full article in browser
+  - **Pagination**: Load more on scroll
+- **Shimmer loading effect** for weather and news while fetching
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# cloudy_bulletin
+### ⚙️ Settings Screen
+- **Temperature Unit Toggle** (°C ↔ °F) with instant refresh
+- **News Category Selector** (Max 5 selections)
+  - Filters news list based on selected categories
+  - Categories include:  
+    `business`, `crime`, `education`, `entertainment`, `environment`, `food`, `health`, `lifestyle`, `politics`, `science`, `sports`, `technology`, `top`, `tourism`, `world`, etc.
+
+---
+
+### 🔍 Smart News Filtering Logic
+
+#### Climate-Based Filtering
+- App auto-generates news keywords using the weather description:
+  - `cold, fog, snow` → `['depressing', 'tragedy']`
+  - `hot, storm, thunder` → `['fear', 'danger']`
+  - `clear sky, mild, sunny` → `['positivity', 'happiness']`
+
+#### Category-Based Filtering
+- If the user selects news categories in settings, they take priority and override climate-based keywords.
+
+---
+
+## 🧪 Manual Testing Procedure
+
+| Test Scenario                       | Expected Behavior                                              |
+|------------------------------------|----------------------------------------------------------------|
+| Toggle temperature unit            | Weather updates to new unit                         |
+| Select news categories             | Only related news is shown in Home                            |
+| Deselect all categories            | News is filtered based on current weather                     |
+| Scroll down news list              | Loads more headlines (pagination works)                       |
+| 5-day forecast                     | Only 5 unique future days shown                               |
+| Location permission denied         | Weather does not show and handles gracefully                  |
+
+
+## 🧱 Tech Stack
+
+- Flutter (## 🧱 Tech Stack
+
+- Flutter (3.29.2)
+- Dart (3.7.2)
+- GetX for state management & routing
+- Lottie for weather animations
+- Shimmer for loading effects
+- NewsAPI for fetching news
+- OpenWeatherMap for weather data
+- Geolocator & Geocoding for location
+
+---)
+- Dart (3.7+)
+- GetX for state management & routing
+- Lottie for weather animations
+- Shimmer for loading effects
+- NewsAPI for fetching news
+- OpenWeatherMap for weather data
+- Geolocator & Geocoding for location
+
+---
+
+## 🧪 Testing
+
+### ✅ Automated Unit & Widget Tests
+
+```bash
+flutter test
+
+## ⚙️ CI/CD – GitHub Actions
+
+This project uses **GitHub Actions** for automated testing and analysis.
