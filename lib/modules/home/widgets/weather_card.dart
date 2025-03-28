@@ -25,7 +25,6 @@ class WeatherCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -41,7 +40,6 @@ class WeatherCard extends StatelessWidget {
           ),
           SizedBox(height: 20),
 
-          // Temperature + animation
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -56,7 +54,6 @@ class WeatherCard extends StatelessWidget {
           Text(weather.description.capitalizeFirst ?? '', style: TextStyle(fontSize: 20, color: Colors.white)),
           SizedBox(height: 20),
 
-          // Metrics
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -66,11 +63,8 @@ class WeatherCard extends StatelessWidget {
             ],
           ),
           SizedBox(height: 30),
-
-          // 5-Day Forecast
           Text("5-Day Forecast", style: TextStyle(fontSize: 16, color: Colors.white)),
           SizedBox(height: 10),
-
           SizedBox(
             height: 90,
             child: ListView.builder(

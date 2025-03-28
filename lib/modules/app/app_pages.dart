@@ -1,5 +1,5 @@
 import 'package:cloudy_bulletin/modules/home/views/home_page.dart';
-import 'package:cloudy_bulletin/modules/settings/settings_page.dart';
+import 'package:cloudy_bulletin/modules/settings/views/settings_page.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {

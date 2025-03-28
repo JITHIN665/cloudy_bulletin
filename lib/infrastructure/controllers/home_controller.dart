@@ -19,13 +19,20 @@ class HomeController extends GetxController {
 
   final temperatureUnit = 'Celsius'.obs;
 
+  ///
+  /// Called when the controller is initialized.
+  ///
   @override
   void onInit() {
     super.onInit();
     fetchWeatherAndNews();
   }
 
-  void fetchWeatherAndNews() async {
+  ///
+  /// Fetches weather and news based on current location and user settings.
+  ///
+  void fetchWeatherAndNews({bool? temp}) async {
+    if (temp == true) weatherData.value = null;
     newsList.clear();
     final settingsController = Get.find<SettingsController>();
     final unit = settingsController.unit.value.toLowerCase();
@@ -45,6 +52,9 @@ class HomeController extends GetxController {
     newsList.addAll(news);
   }
 
+  ///
+  /// Loads additional news articles for pagination.
+  ///
   void loadMoreNews() async {
     isLoadingMore.value = true;
     currentPage.value++;
@@ -57,6 +67,9 @@ class HomeController extends GetxController {
     isLoadingMore.value = false;
   }
 
+  ///
+  /// Returns a list of news keywords based on the current weather description.
+  ///
   List<String> getKeywordsBasedOnWeather(String description) {
     description = description.toLowerCase();
 
@@ -68,15 +81,8 @@ class HomeController extends GetxController {
         description.contains('hot') ||
         description.contains('extreme')) {
       return ['fear', 'danger'];
-    } else if (description.contains('clear sky') ||
-        description.contains('sun') ||
-        description.contains('few clouds') ||
-        description.contains('scattered clouds') ||
-        description.contains('mild') ||
-        description.contains('warm')) {
-      return ['winning', 'positivity', 'happiness'];
     } else {
-      return ['general', 'latest', 'headlines'];
+      return ['winning', 'positivity', 'happiness'];
     }
   }
 }

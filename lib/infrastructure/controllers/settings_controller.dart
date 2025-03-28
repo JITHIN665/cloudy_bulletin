@@ -26,6 +26,9 @@ class SettingsController extends GetxController {
 
   var selectedCategories = <String>[].obs;
 
+  /// 
+  /// Toggles a news category selection (max 5).
+  /// 
   void toggleCategory(String category) {
     if (selectedCategories.contains(category)) {
       selectedCategories.remove(category);
@@ -37,14 +40,20 @@ class SettingsController extends GetxController {
     notifyHome();
   }
 
+  /// 
+  /// Sets the temperature unit and triggers a refresh.
+  /// 
   void setUnit(String value) {
     unit.value = value;
-    notifyHome();
+    notifyHome(temp: true);
   }
 
-  void notifyHome() {
+  /// 
+  /// Notifies the HomeController to refresh data.
+  /// 
+  void notifyHome({bool? temp}) {
     if (Get.isRegistered<HomeController>()) {
-      Get.find<HomeController>().fetchWeatherAndNews();
+      Get.find<HomeController>().fetchWeatherAndNews(temp:temp);
     }
   }
 }

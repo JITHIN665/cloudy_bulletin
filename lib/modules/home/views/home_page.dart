@@ -15,6 +15,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        leading: Image.asset("assets/icons/logo.png"),
         title: Text("Cloudy Bulletin", style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w700)),
         actions: [IconButton(icon: Icon(Icons.settings), onPressed: () => Get.toNamed('/settings'))],
       ),

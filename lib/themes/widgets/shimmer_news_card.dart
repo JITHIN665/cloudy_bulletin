@@ -17,15 +17,17 @@ class ShimmerNewsCard extends StatelessWidget {
         child: Container(
           height: 200,
           padding: EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(height: 140, width: double.infinity, color: Colors.white),
-              SizedBox(height: 12),
-              Container(height: 12, width: 200, color: Colors.white),
-              SizedBox(height: 6),
-              Container(height: 10, width: 150, color: Colors.white),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(height: 140, width: double.infinity, color: Colors.white),
+                SizedBox(height: 12),
+                Container(height: 12, width: 200, color: Colors.white),
+                SizedBox(height: 6),
+                Container(height: 10, width: 150, color: Colors.white),
+              ],
+            ),
           ),
         ),
       ),

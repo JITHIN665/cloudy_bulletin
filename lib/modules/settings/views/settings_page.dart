@@ -10,7 +10,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Settings'), centerTitle: true),
+      appBar: AppBar(title: Text('Settings', style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w700)), centerTitle: true),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -25,19 +25,14 @@ class SettingsPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Temperature unit toggle
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Temperature Unit',
-                      // style: Theme.of(context).textTheme.subtitle1,
-                    ),
+                    Text('Temperature Unit', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                     Row(
                       children: [
                         Text('°C'),
                         Switch(
-                          // activeColor: Colors.red,
                           activeTrackColor: Color(0xFFa18cd1),
                           inactiveThumbColor: Color(0xFFa18cd1),
                           value: controller.unit.value == 'Fahrenheit',
@@ -52,10 +47,7 @@ class SettingsPage extends StatelessWidget {
                 ),
                 Divider(height: 30, color: Colors.black),
 
-                Text(
-                  'Select up to 5 News Categories',
-                  // style: Theme.of(context).textTheme.subtitle1,
-                ),
+                Text('Select up to 5 News Categories', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                 SizedBox(height: 12),
 
                 Wrap(
@@ -68,7 +60,6 @@ class SettingsPage extends StatelessWidget {
                           label: Text(category),
                           selected: isSelected,
                           backgroundColor: Colors.grey[400],
-                          // selectedColor: Theme.of(context).primaryColor,
                           checkmarkColor: Colors.white,
                           onSelected: (selected) {
                             controller.toggleCategory(category);

@@ -1,24 +1,27 @@
 import 'package:cloudy_bulletin/infrastructure/models/news_model.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:cloudy_bulletin/support/api_agent.dart';
 
 class NewsProvider {
-  static const String apiKey = '6c814d3e05f54493a0be299ab4801a27';
+  static const String apiKey = 'c2c413efabf241c0b667f5895a953170';
 
+  /// 
+  /// Fetches news articles and sorts them by publish date (latest first).
+  /// 
   Future<List<NewsModel>> fetchNews(int page, List<String> keywords) async {
     final query = keywords.join(' OR ');
     final url = 'https://newsapi.org/v2/everything?q=$query&pageSize=10&page=$page&apiKey=$apiKey';
 
-    final response = await http.get(Uri.parse(url));
-    final data = json.decode(response.body);
+    final data = await ApiAgent.getJson(url);
 
-    // ✅ Safe check
     if (data['status'] != 'ok' || data['articles'] == null) {
-      print('News API Error: ${data['message'] ?? 'Unknown error'}');
       return [];
     }
 
     final articles = data['articles'] as List;
+
+    // Sort by publishedAt descending (newest first)
+    articles.sort((a, b) => DateTime.parse(b['publishedAt']).compareTo(DateTime.parse(a['publishedAt'])));
+
     return articles.map((json) => NewsModel.fromJson(json)).toList();
   }
 }
