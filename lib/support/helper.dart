@@ -7,3 +7,9 @@ String getWeatherAnimation(String description) {
   if (description.contains('snow')) return 'assets/lottie/snow.json';
   return 'assets/lottie/cloudy.json'; // default fallback
 }
+
+
+  String getWeekdayName(DateTime date) {
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    return days[date.weekday - 1];
+  }

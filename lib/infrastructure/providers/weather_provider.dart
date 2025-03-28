@@ -5,16 +5,6 @@ import 'dart:convert';
 class WeatherProvider {
   static const String apiKey = 'e0aea62f2c50e2a8fc087c652d85bf56';
 
-  // Future<WeatherModel> fetchWeather(String city) async {
-  //   final url = 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=$apiKey';
-  //   final response = await http.get(Uri.parse(url));
-  //   print(response);
-  //   print("dddddddddddddddddddddddddddddd");
-  //   final data = json.decode(response.body);
-  //   print(data);
-  //   return WeatherModel.fromJson(data);
-  // }
-
 Future<WeatherModel> fetchWeatherByCoords(double lat, double lon, String unit) async {
   final apiUnit = unit == 'fahrenheit' ? 'imperial' : 'metric';
   final apiKey = 'e0aea62f2c50e2a8fc087c652d85bf56';
