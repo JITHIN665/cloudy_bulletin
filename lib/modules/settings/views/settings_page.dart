@@ -46,13 +46,10 @@ class SettingsPage extends StatelessWidget {
                   ],
                 ),
                 Divider(height: 30, color: Colors.black),
-
                 Text('Select up to 5 News Categories', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                 SizedBox(height: 12),
-
                 Wrap(
                   spacing: 5,
-                  // runSpacing: 10,
                   children:
                       controller.categories.map((category) {
                         final isSelected = controller.selectedCategories.contains(category);

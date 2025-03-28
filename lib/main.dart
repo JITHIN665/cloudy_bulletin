@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         Get.put(HomeController());
       }),
       getPages: AppPages.routes,
-      initialRoute: AppRoutes.HOME,
+      initialRoute: AppRoutes.SPLASH,
     );
   }
 }

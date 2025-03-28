@@ -21,7 +21,6 @@ class NewsCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // News image
             if (news.imageUrl.isNotEmpty)
               ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
@@ -34,8 +33,6 @@ class NewsCard extends StatelessWidget {
                       (_, __, ___) => Container(height: 180, color: Colors.grey.shade200, child: Center(child: Icon(Icons.broken_image, size: 40))),
                 ),
               ),
-
-            // Headline content
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Column(

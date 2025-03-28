@@ -24,7 +24,6 @@ class ShimmerWeatherCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Header
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -33,8 +32,6 @@ class ShimmerWeatherCard extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-
-            // Temperature & Icon
             Row(
               children: [
                 Container(width: 100, height: 80, color: Colors.white),
@@ -43,8 +40,6 @@ class ShimmerWeatherCard extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-
-            // Metrics
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(3, (_) {
@@ -60,12 +55,8 @@ class ShimmerWeatherCard extends StatelessWidget {
               }),
             ),
             SizedBox(height: 30),
-
-            // Forecast Header
             Container(width: 120, height: 14, color: Colors.white),
             SizedBox(height: 12),
-
-            // Forecast shimmer boxes
             SizedBox(
               height: 90,
               child: ListView.builder(
