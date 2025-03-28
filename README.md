@@ -68,13 +68,6 @@
 - Geolocator & Geocoding for location
 
 ---)
-- Dart (3.7+)
-- GetX for state management & routing
-- Lottie for weather animations
-- Shimmer for loading effects
-- NewsAPI for fetching news
-- OpenWeatherMap for weather data
-- Geolocator & Geocoding for location
 
 ---
 
