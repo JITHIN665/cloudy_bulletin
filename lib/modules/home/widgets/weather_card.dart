@@ -35,7 +35,6 @@ class WeatherCard extends StatelessWidget {
                   Text(weather.city, style: TextStyle(fontSize: 18, color: Colors.white)),
                 ],
               ),
-              Icon(Icons.more_vert, color: Colors.white),
             ],
           ),
           SizedBox(height: 20),
