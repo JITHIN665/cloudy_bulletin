@@ -2,7 +2,7 @@ import 'package:cloudy_bulletin/infrastructure/models/news_model.dart';
 import 'package:cloudy_bulletin/support/api_agent.dart';
 
 class NewsProvider {
-  static const String apiKey = 'c2c413efabf241c0b667f5895a953170';
+  static const String apiKey = 'ec4cfec2195b48bda2108261afbba259';
 
   /// 
   /// Fetches news articles and sorts them by publish date (latest first).

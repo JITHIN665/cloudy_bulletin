@@ -42,6 +42,13 @@
 
 ---
 
+## 📡 Connectivity & Location Checker
+
+- The app uses a **global `ConnectivityGuard`** that wraps all screens:
+  - Checks both **internet (Wi-Fi or mobile)** and **location services**
+  - If either is disabled, it shows a popup to enable them
+  - Once both are available, it automatically refreshes the weather and news
+
 ## 🧪 Manual Testing Procedure
 
 | Test Scenario                       | Expected Behavior                                              |
@@ -81,3 +88,5 @@ flutter test
 ## ⚙️ CI/CD – GitHub Actions
 
 This project uses **GitHub Actions** for automated testing and analysis.
+
+Cloudy Bulletin is also compatible with Appcircle.GitHub connected  for automated testing and analysis with Default PR Workflow.
