@@ -21,6 +21,9 @@ jobs:
 
       - name: 📦 Install dependencies
         run: flutter pub get
+      
+      - name: 📄 Copy .env from .env.example
+        run: cp .env.example .env
 
       - name: 🧪 Run tests
         run: flutter test
