@@ -5,7 +5,7 @@ String getWeatherAnimation(String description) {
   if (description.contains('light rain')) return 'assets/lottie/rainy.json';
   if (description.contains('storm')) return 'assets/lottie/storm.json';
   if (description.contains('snow')) return 'assets/lottie/snow.json';
-  return 'assets/lottie/cloudy.json'; // default fallback
+  return 'assets/lottie/cloudy.json'; 
 }
 
 

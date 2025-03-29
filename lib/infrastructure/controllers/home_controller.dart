@@ -32,25 +32,30 @@ class HomeController extends GetxController {
   /// Fetches weather and news based on current location and user settings.
   ///
   void fetchWeatherAndNews({bool? temp}) async {
+  try {
     if (temp == true) weatherData.value = null;
     newsList.clear();
-    final settingsController = Get.find<SettingsController>();
     final unit = settingsController.unit.value.toLowerCase();
 
     final position = await getCurrentPosition();
-    final weather = await weatherProvider.fetchWeatherByCoords(position.latitude, position.longitude, unit);
+    final weather = await weatherProvider.fetchWeatherByCoords(
+        position.latitude, position.longitude, unit);
 
     weatherData.value = weather;
 
     currentPage.value = 1;
     newsList.clear();
-
-    final keywords =
-        settingsController.selectedCategories.isNotEmpty ? settingsController.selectedCategories : getKeywordsBasedOnWeather(weather.description);
+    final keywords = settingsController.selectedCategories.isNotEmpty
+        ? settingsController.selectedCategories
+        : getKeywordsBasedOnWeather(weather.description);
 
     final news = await newsProvider.fetchNews(currentPage.value, keywords);
     newsList.addAll(news);
+  } catch (e) {
+    print("Error: $e");
   }
+}
+
 
   ///
   /// Loads additional news articles for pagination.
