@@ -1,8 +1,9 @@
 import 'package:cloudy_bulletin/infrastructure/models/news_model.dart';
 import 'package:cloudy_bulletin/support/api_agent.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class NewsProvider {
-  static const String apiKey = 'ec4cfec2195b48bda2108261afbba259';
+  static String apiKey = dotenv.env['NEWS_API_KEY']!;
 
   /// 
   /// Fetches news articles and sorts them by publish date (latest first).

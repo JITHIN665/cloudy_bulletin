@@ -1,11 +1,13 @@
 import 'package:cloudy_bulletin/infrastructure/models/weather_model.dart';
 import 'package:cloudy_bulletin/support/api_agent.dart';
-class WeatherProvider {
-  static const String apiKey = 'e0aea62f2c50e2a8fc087c652d85bf56';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-  /// 
+class WeatherProvider {
+  static String apiKey = dotenv.env['WEATHER_API_KEY']!;
+
+  ///
   /// Fetches current weather and 5-day forecast based on coordinates and unit.
-  /// 
+  ///
   Future<WeatherModel> fetchWeatherByCoords(double lat, double lon, String unit) async {
     final apiUnit = unit == 'fahrenheit' ? 'imperial' : 'metric';
     final apiKey = 'e0aea62f2c50e2a8fc087c652d85bf56';

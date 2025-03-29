@@ -4,6 +4,15 @@
 
 ---
 
+## 🔐 Environment Configuration with `.env`
+
+This project uses [`flutter_dotenv`](https://pub.dev/packages/flutter_dotenv) to securely manage sensitive data like API keys.
+
+### ✅ Setup Instructions
+  - Create a .env file at the root of your project:
+  - You can start by copying from .env.example:
+   
+
 ## 🚀 Features
 
 ### 🏠 Home Screen

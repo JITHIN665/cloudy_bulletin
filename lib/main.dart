@@ -2,10 +2,12 @@ import 'package:cloudy_bulletin/infrastructure/controllers/home_controller.dart'
 import 'package:cloudy_bulletin/infrastructure/controllers/settings_controller.dart';
 import 'package:cloudy_bulletin/modules/app/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(); 
   runApp(MyApp());
 }
 
